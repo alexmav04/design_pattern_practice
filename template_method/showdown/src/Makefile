@@ -3,7 +3,13 @@ CXXFLAGS = -std=c++17 -Wall -g
 
 TARGET = card_game.exe
 
-SRCS = main.cpp game.cpp player.cpp deck.cpp card.cpp
+SRCS += main.cpp \
+	game.cpp \
+	player.cpp \
+	deck.cpp \
+	card.cpp \
+	ai_player.cpp \
+	human_player.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

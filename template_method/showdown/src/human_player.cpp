@@ -2,10 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-HumanPlayer::HumanPlayer() 
-{
-    
-}
+HumanPlayer::HumanPlayer() { }
 
 Card HumanPlayer::show() {
     if (hands_.empty()) {
@@ -14,7 +11,8 @@ Card HumanPlayer::show() {
 
     int index;
     while (true) {
-        std::cout << name_ << " choose a card to play: (enter 0-" << hands_.size() - 1 << "): ";
+        std::string range = (hands_.size() == 1) ? "0" : "0-" + std::to_string(hands_.size() - 1);
+        std::cout << name_ << " choose a card to play: (enter " << range << "): ";
         std::cin >> index;
 
         if (std::cin.fail()) {

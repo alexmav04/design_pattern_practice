@@ -1,17 +1,33 @@
 #include "game.h"
+#include "human_player.h"
+#include "ai_player.h"
+#include <iostream>
 #include <algorithm>
 
-Game::Game() 
-{
-    
-}
+Game::Game() { }
 
 void Game::start() {
     deck_.shuffle();
 
     for (int i = 0; i < 4; ++i) {
-        players_.push_back(new Player());
-        players_[i]->nameHimself();
+        char choice;
+        while (true) {
+            std::cout << "Is player " << i + 1 << " a human? (y/n): ";
+            std::cin >> choice;
+
+            if (choice == 'y' || choice == 'Y') {
+                players_.emplace_back(new HumanPlayer());
+                break;
+            } else if (choice == 'n' || choice == 'N') {
+                players_.emplace_back(new AIPlayer());
+                break;
+            } else {
+                std::cout << "Please enter 'y' for human or 'n' for AI.\n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
+        }
+        players_.back()->nameHimself();
     }
 
     for (int i = 0; i < 13; ++i) {
@@ -40,13 +56,13 @@ void Game::revealAll(std::vector<std::pair<Player*, Card>> cards) {
         return a.second < b.second;
     });
 
-    std::cout << "Winner: " << maxCard.first->name() << " won this round.\n";
+    std::cout << "\nWinner: " << maxCard.first->name() << " won this round.\n\n";
     maxCard.first->addPoint();
 }
 
 void Game::playGame() {
     for (int round = 0; round < 13; ++round) {
-        std::cout << "Round " << round + 1 << std::endl;
+        std::cout << "\n------ Round " << round + 1 << "------" << std::endl;
         takeATurn();
     }
     determineWinner();
@@ -57,5 +73,6 @@ void Game::determineWinner() {
         return a->points() < b->points();
     });
 
+    std::cout << " ==== Game Over ==== \n";
     std::cout << winner->name() << " won the game and got " << winner->points() << " points.\n";
 }

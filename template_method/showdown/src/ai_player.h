@@ -4,9 +4,10 @@
 #include <vector>
 #include "player.h"
 
-class AIPlayer : public AIPlayer {
+class AIPlayer : public Player {
 public:
     AIPlayer();
+    Card show() override;
 };
 
 #endif //AI_PLAYER_H
