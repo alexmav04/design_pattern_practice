@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -g
 
-TARGET = showdown.exe
+TARGET = uno.exe
 
 SRCS += main.cpp \
 	game.cpp \

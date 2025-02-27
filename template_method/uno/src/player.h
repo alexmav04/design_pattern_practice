@@ -9,17 +9,16 @@ public:
     Player();
 
     void nameHimself();
+    bool hasPlayableCard(const Card& card) const;
     void drawCard(Deck& deck);
-    virtual Card show() = 0;
+    virtual Card playCard(const Card& topCard) = 0; 
+    bool emptyHand() const;
     
-    void addPoint();
-    int points() const;
     std::string name() const;
 
 protected:
     std::string name_;
     std::vector<Card> hands_;
-    int points_;
 };
 
 #endif //PLAYER_H
