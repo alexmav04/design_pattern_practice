@@ -11,7 +11,7 @@ public:
     void shuffle();
     Card drawCard();
 
-private:
+protected:
     std::vector<Card> cards_;
 };
 

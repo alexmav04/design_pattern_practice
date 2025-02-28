@@ -21,8 +21,5 @@ $(TARGET): $(OBJS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
 clean:
 	del /F /Q $(TARGET) $(OBJS) 2>nul || exit 0
