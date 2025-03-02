@@ -1,9 +1,10 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g -Iuno/
+CXXFLAGS = -std=c++17 -Wall -g -I/
 
-SRC_DIR = uno
+SHOWDOWN_SRC_DIR = showdown
+UNO_SRC_DIR = uno
 BUILD_DIR = build_game
-SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp) main.cpp
+SRC_FILES := $(wildcard $(SHOWDOWN_SRC_DIR)/*.cpp) $(wildcard $(UNO_SRC_DIR)/*.cpp) main.cpp 
 OBJ_FILES := $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(SRC_FILES))
 TARGET = $(BUILD_DIR)/cardGame.exe
 
@@ -17,11 +18,15 @@ $(BUILD_DIR):
 $(TARGET): $(OBJ_FILES) | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
+$(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
 	if not exist "$(dir $@)" mkdir "$(dir $@)"
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(BUILD_DIR)/%.o: %.cpp | $(BUILD_DIR)
+$(BUILD_DIR)/%.o: $(SHOWDOWN_SRC_DIR)/%.cpp | $(BUILD_DIR)
+	if not exist "$(dir $@)" mkdir "$(dir $@)"
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/%.o: $(UNO_SRC_DIR)/%.cpp | $(BUILD_DIR)
 	if not exist "$(dir $@)" mkdir "$(dir $@)"
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 

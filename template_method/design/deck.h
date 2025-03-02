@@ -6,6 +6,7 @@
 #include <memory>
 #include <random>
 #include <algorithm>
+#include <chrono>
 
 class Deck {
 protected:
@@ -15,8 +16,7 @@ public:
     virtual ~Deck() = default;
 
     virtual void shuffle() {
-        std::random_device rd;
-        std::mt19937 rng(rd());
+        static std::mt19937 rng(std::chrono::system_clock::now().time_since_epoch().count());
         std::shuffle(cards_.begin(), cards_.end(), rng);
     }
 

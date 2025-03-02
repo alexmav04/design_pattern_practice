@@ -14,8 +14,7 @@ std::unique_ptr<Card> UnoAIPlayer::playCard(const Card& topCard) {
         return nullptr;
     }
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    static std::mt19937 gen(std::random_device{}());
     std::uniform_int_distribution<> dist(0, validIndices.size() - 1);
     int choice = validIndices[dist(gen)];
 
