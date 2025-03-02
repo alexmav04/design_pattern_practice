@@ -34,7 +34,3 @@ std::unique_ptr<Card> ShowdownHumanPlayer::show() {
     hands_.erase(hands_.begin() + choice);
     return playedCard;
 }
-
-std::unique_ptr<Card> ShowdownHumanPlayer::playCard(const Card& topCard) {
-    return nullptr;
-}

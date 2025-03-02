@@ -22,7 +22,3 @@ std::unique_ptr<Card> ShowdownAIPlayer::show() {
     hands_.erase(hands_.begin() + choice);
     return playedCard;
 }
-
-std::unique_ptr<Card> ShowdownAIPlayer::playCard(const Card& topCard) {
-    return nullptr;
-}

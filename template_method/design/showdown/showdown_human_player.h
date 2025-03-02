@@ -1,15 +1,14 @@
 #ifndef SHOWDOWN_HUMAN_PLAYER_H
 #define SHOWDOWN_HUMAN_PLAYER_H
 
-#include "../player.h"
+#include "showdown_player.h"
 
-class ShowdownHumanPlayer : public Player 
+class ShowdownHumanPlayer : public ShowdownPlayer 
 {
 public:
     ShowdownHumanPlayer();
 
     std::unique_ptr<Card> show() override;
-    std::unique_ptr<Card> playCard(const Card& topCard) override;
 };
 
 #endif // SHOWDOWN_HUMAN_PLAYER_H
