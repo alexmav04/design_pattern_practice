@@ -11,38 +11,23 @@ class Player {
 public:
     virtual ~Player() = default;
 
-    virtual void nameHimself() {
-        std::cout << "Enter player name: ";
-        std::cin >> name_;
-    }
+    void nameHimself();
 
-    virtual void drawCard(std::unique_ptr<Card> card) {
-        hands_.push_back(std::move(card));
-    }
+    std::string name() const;
+
+    void drawCard(std::unique_ptr<Card> card);
 
     virtual std::unique_ptr<Card> show() = 0;
     
     virtual std::unique_ptr<Card> playCard(const Card& topCard) = 0;
 
-    virtual bool hasPlayableCard(const Card& topCard) const { 
-        return false; 
-    }
+    bool hasPlayableCard(const Card& topCard) const;
     
-    virtual bool emptyHand() const { 
-        return hands_.empty(); 
-    }
+    bool emptyHand() const;
 
-    void addPoint() { 
-        points_++; 
-    }
+    void addPoint();
 
-    int points() const { 
-        return points_; 
-    }
-
-    std::string name() const {
-         return name_; 
-    }
+    int points() const;
 
 protected:
     std::string name_;

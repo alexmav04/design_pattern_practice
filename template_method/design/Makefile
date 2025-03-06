@@ -4,7 +4,9 @@ CXXFLAGS = -std=c++17 -Wall -g -I/
 SHOWDOWN_SRC_DIR = showdown
 UNO_SRC_DIR = uno
 BUILD_DIR = build_game
-SRC_FILES := $(wildcard $(SHOWDOWN_SRC_DIR)/*.cpp) $(wildcard $(UNO_SRC_DIR)/*.cpp) main.cpp 
+SRC_FILES := $(wildcard $(SHOWDOWN_SRC_DIR)/*.cpp) \
+             $(wildcard $(UNO_SRC_DIR)/*.cpp) \
+             $(wildcard *.cpp)
 OBJ_FILES := $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(SRC_FILES))
 TARGET = $(BUILD_DIR)/cardGame.exe
 

@@ -9,12 +9,18 @@ class ShowdownGame : public Game
 public:
     ShowdownGame();
 
-    void setupPlayers() override;  
-    void dealInitialCards() override;
+    std::unique_ptr<Player> createHumanPlayer();
+
+    std::unique_ptr<Player> createAIPlayer();
+
+    int initialCardCount() const override;
+
     void takeATurn() override;
-    int getTotalRounds() const override;
+
     bool isGameOver() const override;
+
     void determineWinner() override;
+
     void revealAll(const std::vector<std::pair<Player*, std::unique_ptr<Card>>>& cards);
 
 private:

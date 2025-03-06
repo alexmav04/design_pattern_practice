@@ -8,35 +8,19 @@ UnoGame::UnoGame() {
     deck_ = std::make_unique<UnoDeck>();
 }
 
-void UnoGame::setupPlayers() {
-    for (int i = 0; i < 4; ++i) {
-        char choice;
-        while (true) {
-            std::cout << "Is player " << i + 1 << " a human? (y/n): ";
-            std::cin >> choice;
-
-            if (choice == 'y' || choice == 'Y') {
-                players_.emplace_back(std::make_unique<UnoHumanPlayer>());
-                break;
-            } else if (choice == 'n' || choice == 'N') {
-                players_.emplace_back(std::make_unique<UnoAIPlayer>());
-                break;
-            } else {
-                std::cout << "Please enter 'y' for human or 'n' for AI.\n";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-        }
-        players_.back()->nameHimself();
-    }
+std::unique_ptr<Player> UnoGame::createHumanPlayer() {
+    return std::make_unique<UnoHumanPlayer>();
 }
 
-void UnoGame::dealInitialCards() {
-    for (int i = 0; i < 5; ++i) {
-        for (auto& player : players_) {
-            player->drawCard(deck_->drawCard());
-        }
-    }
+std::unique_ptr<Player> UnoGame::createAIPlayer() {
+    return std::make_unique<UnoAIPlayer>();
+}
+
+int UnoGame::initialCardCount() const {
+    return 5;
+}
+
+void UnoGame::otherCardSetup() {
     flipTop();
 }
 
@@ -46,7 +30,6 @@ void UnoGame::flipTop() {
     } while (dynamic_cast<UnoCard*>(topCard_.get())->number() == -1);
 
     std::cout << "\nTop card: " << topCard_->toString() << std::endl;
-    // discardCards_.push_back(std::move(topCard_));
 }
 
 void UnoGame::takeATurn() {
@@ -68,7 +51,6 @@ void UnoGame::takeATurn() {
         }
 
         if (player->emptyHand()) {
-            std::cout << "\n===== " << player->name() << " wins! =====\n";
             return;
         }
     }
@@ -84,7 +66,13 @@ bool UnoGame::isGameOver() const {
 }
 
 void UnoGame::determineWinner() {
-    std::cout << " ==== Game Over ==== \n";
+    std::cout << "\n ==== Game Over ==== \n";
+    for (const auto& player : players_) {
+        if (player->emptyHand()) {
+            std::cout << player->name() << " wins the game!\n";
+            return;
+        }
+    }
 }
 
 void UnoGame::reshuffleDeck() {

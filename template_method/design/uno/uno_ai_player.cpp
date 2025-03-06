@@ -20,6 +20,5 @@ std::unique_ptr<Card> UnoAIPlayer::playCard(const Card& topCard) {
 
     std::unique_ptr<Card> playedCard = std::move(hands_[choice]);
     hands_.erase(hands_.begin() + choice);
-    std::cout << "Played: " << playedCard->toString() << "\n";
     return playedCard;
 }

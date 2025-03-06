@@ -9,15 +9,22 @@ class UnoGame : public Game {
 public:
     UnoGame();
     
-    void setupPlayers() override;
-    void dealInitialCards() override;
+    std::unique_ptr<Player> createHumanPlayer() override;
+
+    std::unique_ptr<Player> createAIPlayer() override;
+
+    int initialCardCount() const override;
+
+    void otherCardSetup() override;
+
     void takeATurn() override;
-    int getTotalRounds() const override { 
-        return 9999; 
-    }
+
     bool isGameOver() const override;
+
     void determineWinner() override;
+
     void flipTop();
+
     void reshuffleDeck();
 
 private:

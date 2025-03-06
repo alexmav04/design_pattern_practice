@@ -8,35 +8,12 @@ ShowdownGame::ShowdownGame() : currentRound_(0) {
     deck_ = std::make_unique<ShowdownDeck>();
 }
 
-void ShowdownGame::setupPlayers() {   
-    for (int i = 0; i < 4; ++i) {
-        char choice;
-        while (true) {
-            std::cout << "Is player " << i + 1 << " a human? (y/n): ";
-            std::cin >> choice;
-
-            if (choice == 'y' || choice == 'Y') {
-                players_.push_back(std::make_unique<ShowdownHumanPlayer>());
-                break;
-            } else if (choice == 'n' || choice == 'N') {
-                players_.push_back(std::make_unique<ShowdownAIPlayer>());
-                break;
-            } else {
-                std::cout << "Please enter 'y' for human or 'n' for AI.\n";
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            }
-        }
-        players_.back()->nameHimself();
-    }
+std::unique_ptr<Player> ShowdownGame::createHumanPlayer() {
+    return std::make_unique<ShowdownHumanPlayer>();
 }
 
-void ShowdownGame::dealInitialCards() {
-    for (int i = 0; i < 13; ++i) {
-        for (auto& player : players_) {
-            player->drawCard(deck_->drawCard());
-        }
-    }
+std::unique_ptr<Player> ShowdownGame::createAIPlayer() {
+    return std::make_unique<ShowdownAIPlayer>();
 }
 
 void ShowdownGame::takeATurn() {
@@ -50,12 +27,12 @@ void ShowdownGame::takeATurn() {
     currentRound_++;
 }
 
-int ShowdownGame::getTotalRounds() const {
+int ShowdownGame::initialCardCount() const {
     return 13;
 }
 
 bool ShowdownGame::isGameOver() const {
-    return currentRound_ >= getTotalRounds();
+    return currentRound_ >= initialCardCount();
 }
 
 void ShowdownGame::determineWinner() {
