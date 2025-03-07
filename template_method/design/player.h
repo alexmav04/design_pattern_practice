@@ -16,10 +16,14 @@ public:
     std::string name() const;
 
     void drawCard(std::unique_ptr<Card> card);
-
-    virtual std::unique_ptr<Card> show() = 0;
     
-    virtual std::unique_ptr<Card> playCard(const Card& topCard) = 0;
+    virtual std::unique_ptr<Card> playCard() {
+        return nullptr;
+    }
+
+    virtual std::unique_ptr<Card> playCard(const Card& topCard) {
+        return nullptr;
+    }
 
     bool hasPlayableCard(const Card& topCard) const;
     

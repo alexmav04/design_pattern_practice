@@ -20,7 +20,7 @@ void ShowdownGame::takeATurn() {
     std::vector<std::pair<Player*, std::unique_ptr<Card>>> cardsOnTable;
 
     for (auto& player : players_) {
-        std::unique_ptr<Card> card = player->show();
+        std::unique_ptr<Card> card = player->playCard();
         cardsOnTable.emplace_back(player.get(), std::move(card));
     }
     revealAll(cardsOnTable);

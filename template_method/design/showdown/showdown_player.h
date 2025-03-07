@@ -6,9 +6,7 @@
 class ShowdownPlayer : public Player 
 {
 public:
-    std::unique_ptr<Card> playCard(const Card& topCard) override {
-        return nullptr;
-    }
+    virtual ~ShowdownPlayer() = default;
 };
 
 #endif // SHOWDOWN_PLAYER_H

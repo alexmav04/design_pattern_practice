@@ -9,6 +9,6 @@ class ShowdownAIPlayer : public ShowdownPlayer
 public:
     ShowdownAIPlayer();
 
-    std::unique_ptr<Card> show() override;
+    std::unique_ptr<Card> playCard() override;
 };
 #endif // SHOWDOWN_AI_PLAYER_H
