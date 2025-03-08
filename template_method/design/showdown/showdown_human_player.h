@@ -8,7 +8,7 @@ class ShowdownHumanPlayer : public ShowdownPlayer
 public:
     ShowdownHumanPlayer();
 
-    std::unique_ptr<Card> show() override;
+    std::unique_ptr<Card> playCard() override;
 };
 
 #endif // SHOWDOWN_HUMAN_PLAYER_H

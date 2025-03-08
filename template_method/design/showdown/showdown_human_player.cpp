@@ -6,7 +6,7 @@ ShowdownHumanPlayer::ShowdownHumanPlayer()
 
 }
 
-std::unique_ptr<Card> ShowdownHumanPlayer::show() {
+std::unique_ptr<Card> ShowdownHumanPlayer::playCard() {
     std::cout << "\n" << name_ << " hands:\n";
     for (size_t i = 0; i < hands_.size(); ++i) {
         std::cout << "(" << i << ") " << hands_[i]->toString() << "\n";

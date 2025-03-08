@@ -4,7 +4,8 @@
 #include "uno_player.h"
 #include "uno_card.h"
 
-class UnoHumanPlayer : public UnoPlayer {
+class UnoHumanPlayer : public UnoPlayer 
+{
 public:
     std::unique_ptr<Card> playCard(const Card& topCard) override;
 };

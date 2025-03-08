@@ -7,7 +7,7 @@ ShowdownAIPlayer::ShowdownAIPlayer()
     
 }
 
-std::unique_ptr<Card> ShowdownAIPlayer::show() {
+std::unique_ptr<Card> ShowdownAIPlayer::playCard() {
     if (hands_.empty()) {
         std::cout << name_ << " has no cards!\n";
         return nullptr;
