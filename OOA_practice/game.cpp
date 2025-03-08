@@ -41,6 +41,7 @@ void Game::start() {
     }
 
     while (round_ <= 13) {
+        std::cout << "\n======== Round " << round_ << " ========"<< std::endl;
         if (round_ > 1) {
             revertHands();
         }
@@ -53,7 +54,6 @@ void Game::start() {
 
 void Game::takeTurn() {
     std::vector<std::pair<int, Card>> cardsOnTable;
-    std::cout << "\n======== Round " << round_ << " ========"<< std::endl;
     for (size_t i = 0; i < players_.size(); ++i) {
         auto& player = players_[i];
         std::cout << player->name() << "'s turn." << std::endl;
@@ -118,8 +118,14 @@ void Game::takeTurn() {
 }
 
 void Game::revertHands() {
-    for (const auto& exchange : exchangeHistory_[round_]) {
-        std::swap(players_[exchange.first]->hands(), players_[exchange.second]->hands());
+    if (exchangeHistory_.count(round_)) {
+        std::cout << "Reverting hands..." << std::endl;
+        for (const auto& exchange : exchangeHistory_[round_]) {
+            std::cout << players_[exchange.first]->name() << " exchanges hands with " << players_[exchange.second]->name() << std::endl;
+            std::swap(players_[exchange.first]->hands(), players_[exchange.second]->hands());
+        }
+        std::cout << "Hands reverted." << std::endl;
+        std::cout << std::endl;
     }
 }
 
