@@ -1,6 +1,12 @@
 #include "reverse_matching_strategy.h"
 #include <algorithm>
 
+ReverseMatchingStrategy::ReverseMatchingStrategy(MatchStrategy* strategy) 
+    : strategy_(strategy) 
+{
+    
+}
+
 Individual* ReverseMatchingStrategy::match(Individual* self, std::vector<Individual*>& candidates) {
     if (candidates.size() < 2) {
         return nullptr;

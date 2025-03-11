@@ -21,29 +21,34 @@ int main() {
 
     // enter an index of an individual to match
     int index;
-    std::cout << "Enter an index of an individual to match (0-19): ";
+    std::cout << "Enter an index of an individual to match (1-20): ";
     std::cin >> index;
-    Individual* user1 = individuals[index];
+    Individual* user1 = individuals[index-1];
+    user1->printInfo();
 
     // distance-based
     system.setStrategy(&distanceStrategy);
     Individual* match_distance = system.match(user1, individuals);
     std::cout << "Best match by distance: " << (match_distance ? match_distance->id() : -1) << std::endl;
+    match_distance->printInfo();
 
     // reverse distance-based
     system.setStrategy(&reverseDistanceStrategy);
     Individual* match_distance_reverse = system.match(user1, individuals);
     std::cout << "Worst match by distance: " << (match_distance_reverse ? match_distance_reverse->id() : -1) << std::endl;
+    match_distance_reverse->printInfo();
 
     // habit-based
     system.setStrategy(&habitStrategy);
     Individual* match_habit = system.match(user1, individuals);
     std::cout << "Best match by habits: " << (match_habit ? match_habit->id() : -1) << std::endl;
+    match_habit->printInfo();
 
     // reverse habit-based
     system.setStrategy(&reverseHabitStrategy);
     Individual* match_habit_reverse = system.match(user1, individuals);
     std::cout << "Worst match by habits: " << (match_habit_reverse ? match_habit_reverse->id() : -1) << std::endl;
+    match_habit_reverse->printInfo();
 
     for (Individual* i : individuals) {
         delete i;

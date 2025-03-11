@@ -21,6 +21,7 @@ public:
     std::string intro() const;
     std::vector<std::string> habits() const;
     std::pair<int, int> coord() const;
+    void printInfo();
     
 private:
     int id_;

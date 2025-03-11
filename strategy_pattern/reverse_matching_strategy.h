@@ -6,7 +6,7 @@
 class ReverseMatchingStrategy : public MatchStrategy
 {
 public:
-    ReverseMatchingStrategy(MatchStrategy* strategy) : strategy_(strategy) {}
+    ReverseMatchingStrategy(MatchStrategy* strategy);
 
     Individual* match(Individual* self, std::vector<Individual*>& candidates) override;
 
