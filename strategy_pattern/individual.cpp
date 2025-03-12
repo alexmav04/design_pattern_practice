@@ -28,16 +28,19 @@ std::pair<int, int> Individual::coord() const {
 void Individual::printInfo() {
     std::cout << id_ << " | ";
 
-    std::string genderStr = (gender_ == Gender::FEMALE) ? "FEMALE" : "MALE";
-    std::cout << genderStr << " | ";
+    std::cout << ((gender_ == Gender::FEMALE) ? "FEMALE" : "MALE") << " | ";
 
-    std::cout << age_ << " | ";
-    std::cout << intro_ << " | ";
+    std::cout << age_ << " | " << intro_ << " | ";
 
+    bool first = true;
     for (const auto& habit : habits_) {
-        std::cout << habit << ",";
+        if (!first) {
+            std::cout << ", ";
+        }
+        std::cout << habit;
+        first = false;
     }
     std::cout << " | ";
-
+    
     std::cout << "(" << coord_.first << "," << coord_.second << ")" << std::endl;
 }

@@ -2,20 +2,21 @@
 #define MATCHMAKING_SYSTEM_H
 
 #include "match_strategy.h"
+#include <map>
 
 class MatchmakingSystem
 {
 public:
-    MatchmakingSystem(MatchStrategy* strategy) : strategy_(strategy) {}
+    MatchmakingSystem() { };
 
-    void setStrategy(MatchStrategy* strategy);
+    Individual* match(const std::string strategy, Individual* self, std::vector<Individual*>& candidates);
 
-    Individual* match(Individual* self, std::vector<Individual*>& candidates);
-
-    static std::vector<Individual*> loadIndividuals(const std::string& filename);
+    void addStrategy(const std::string& name, MatchStrategy* strategy);
 
 private:
     MatchStrategy* strategy_;
+
+    std::map<std::string, MatchStrategy*> strategies_;
 };
 
 #endif // MATCHMAKING_SYSTEM_H

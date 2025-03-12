@@ -2,6 +2,10 @@
 #include <algorithm>
 
 Individual* HabitBasedStrategy::match(Individual* self, std::vector<Individual*>& candidates) {
+    if (candidates.size() < 2) {
+        return nullptr;
+    }
+
     Individual* bestOne = nullptr;
     int maxHabitMatch = -1;
 
@@ -12,7 +16,8 @@ Individual* HabitBasedStrategy::match(Individual* self, std::vector<Individual*>
 
         int habitMatch = 0;
         for (const std::string& habit : candidate->habits()) {
-            if (std::find(self->habits().begin(), self->habits().end(), habit) != self->habits().end()) {
+            const std::vector<std::string>& selfHabits = self->habits();
+            if (std::find(selfHabits.begin(), selfHabits.end(), habit) != selfHabits.end()) {
                 habitMatch++;
             }
         }
@@ -22,5 +27,6 @@ Individual* HabitBasedStrategy::match(Individual* self, std::vector<Individual*>
             bestOne = candidate;
         }
     }
+
     return bestOne;
 }

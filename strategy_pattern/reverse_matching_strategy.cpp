@@ -12,8 +12,15 @@ Individual* ReverseMatchingStrategy::match(Individual* self, std::vector<Individ
         return nullptr;
     }
 
-    std::vector<Individual*> remainingCandidates = candidates;
-    Individual* worstOne = nullptr;
+    std::vector<Individual*> remainingCandidates;
+    for (Individual* candidate : candidates) {
+        if (candidate != self) {
+            remainingCandidates.push_back(candidate);
+        }
+    }
+    if (remainingCandidates.size() < 2) {
+        return nullptr;
+    }
 
     while (remainingCandidates.size() > 1) {
         Individual* bestOne = strategy_->match(self, remainingCandidates);
@@ -26,6 +33,5 @@ Individual* ReverseMatchingStrategy::match(Individual* self, std::vector<Individ
             remainingCandidates.erase(it);
         }
     }
-    worstOne = remainingCandidates[0];
-    return worstOne;
+    return remainingCandidates.empty() ? nullptr : remainingCandidates[0];
 }

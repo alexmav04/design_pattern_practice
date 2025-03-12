@@ -1,20 +1,20 @@
-1 | MALE | 25 | 懶得打自我介紹 | 寫程式,看電影,打籃球,旅行 | 10 | 20
-2 | FEMALE | 23 | 嗨你好 | 閱讀,畫畫 | 15 | 30
-3 | MALE | 28 | 嗨你好 | 音樂,跑步,攝影 | 5 | 10
-4 | FEMALE | 26 | 交個朋友吧 | 瑜珈,畫畫,寫程式,科技 | 20 | 25
-5 | FEMALE | 18 | 交個朋友吧 | 閱讀,學習語言,電玩,攝影,旅行,烹飪 | 45 | 3
-6 | FEMALE | 31 | 很開心認識你 | 閱讀,園藝,程式設計,跑步 | 19 | 44
-7 | FEMALE | 18 | 很開心認識你 | 閱讀,學習語言,看電影,籃球 | 20 | 50
-8 | MALE | 34 | 交個朋友吧 | 玩遊戲,煮菜,游泳,寫作,舞蹈,音樂,手工藝 | 1 | 50
-9 | MALE | 23 | 懶得打自我介紹 | 玩遊戲,煮菜,跑步,登山,籃球,戲劇,寫作 | 40 | 2
-10 | MALE | 30 | 懶得打自我介紹 | 玩遊戲,煮菜,游泳,看電影,學習語言 | 38 | 16
-11 | FEMALE | 32 | 很開心認識你 | 閱讀,學習語言,品酒,舞蹈,籃球,登山,瑜珈 | 47 | 10
-12 | MALE | 23 | 嗨嗨 | 玩遊戲,寫程式,園藝,科技,攝影,寫作,舞蹈 | 19 | 9
-13 | MALE | 25 | 嗨嗨 | 玩遊戲,煮菜,露營,看電影,品酒,手工藝,園藝 | 17 | 16
-14 | MALE | 30 | 交個朋友吧 | 玩遊戲,煮菜,讀書,桌遊,寫作 | 49 | 17
-15 | FEMALE | 26 | 交個朋友吧 | 閱讀,旅行,戲劇,釣魚,園藝 | 43 | 0
-16 | FEMALE | 21 | 很開心認識你 | 跑步,登山,學習語言,舞蹈,品酒,瑜珈,園藝 | 38 | 40
-17 | FEMALE | 18 | 嗨嗨 | 閱讀,學習語言,科技,釣魚 | 21 | 42
-18 | MALE | 26 | 懶得打自我介紹 | 玩遊戲,煮菜,舞蹈,科技,烹飪 | 20 | 22
-19 | FEMALE | 35 | 很開心認識你 | 閱讀,旅行,動漫,烹飪 | 14 | 22
-20 | FEMALE | 21 | 很開心認識你 | 跑步,登山,旅行,瑜珈 | 16 | 47
+1 | MALE | 25 | Too lazy to write an introduction | Programming, Movies, Basketball, Traveling | 10 | 20
+2 | FEMALE | 23 | Hi, nice to meet you | Reading, Drawing | 15 | 30
+3 | MALE | 28 | Hi, nice to meet you | Music, Running, Photography | 5 | 10
+4 | FEMALE | 26 | Let's make friends | Yoga, Drawing, Programming, Technology | 20 | 25
+5 | FEMALE | 18 | Let's make friends | Reading, Learning languages, Video games, Photography, Traveling, Cooking | 45 | 3
+6 | FEMALE | 31 | Nice to meet you | Reading, Gardening, Programming, Running | 19 | 44
+7 | FEMALE | 18 | Nice to meet you | Reading, Learning languages, Movies, Basketball | 20 | 50
+8 | MALE | 34 | Let's make friends | Gaming, Cooking, Swimming, Writing, Dancing, Music, Handicrafts | 1 | 50
+9 | MALE | 23 | Too lazy to write an introduction | Gaming, Cooking, Running, Hiking, Basketball, Drama, Writing | 40 | 2
+10 | MALE | 30 | Too lazy to write an introduction | Gaming, Cooking, Swimming, Movies, Learning languages | 38 | 16
+11 | FEMALE | 32 | Nice to meet you | Reading, Learning languages, Wine tasting, Dancing, Basketball, Hiking, Yoga | 47 | 10
+12 | MALE | 23 | Hi hi | Gaming, Programming, Gardening, Technology, Photography, Writing, Dancing | 19 | 9
+13 | MALE | 25 | Hi hi | Gaming, Cooking, Camping, Movies, Wine tasting, Handicrafts, Gardening | 17 | 16
+14 | MALE | 30 | Let's make friends | Gaming, Cooking, Reading, Board games, Writing | 49 | 17
+15 | FEMALE | 26 | Let's make friends | Reading, Traveling, Drama, Fishing, Gardening | 43 | 0
+16 | FEMALE | 21 | Nice to meet you | Running, Hiking, Learning languages, Dancing, Wine tasting, Yoga, Gardening | 38 | 40
+17 | FEMALE | 18 | Hi hi | Reading, Learning languages, Technology, Fishing | 21 | 42
+18 | MALE | 26 | Too lazy to write an introduction | Gaming, Cooking, Dancing, Technology, Cooking | 20 | 22
+19 | FEMALE | 35 | Nice to meet you | Reading, Traveling, Anime, Cooking | 14 | 22
+20 | FEMALE | 21 | Nice to meet you | Running, Hiking, Traveling, Yoga | 16 | 47
